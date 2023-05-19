@@ -1,9 +1,6 @@
 import numpy as np
 import cv2
 import os
-import math
-import scipy.io as sio
-from scipy import ndimage
 
 
 TAG_FLOAT = 202021.25
