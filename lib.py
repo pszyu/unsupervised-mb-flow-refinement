@@ -6,6 +6,24 @@ import scipy.io as sio
 from scipy import ndimage
 
 
+TAG_FLOAT = 202021.25
+
+
+def clean_dst_file(dst_file):
+    """Create the output folder, if necessary; empty the output folder of previous predictions, if any
+    Args:
+        dst_file: Destination path
+    """
+    # Create the output folder, if necessary
+    dst_file_dir = os.path.dirname(dst_file)
+    if not os.path.exists(dst_file_dir):
+        os.makedirs(dst_file_dir)
+
+    # Empty the output folder of previous predictions, if any
+    if os.path.exists(dst_file):
+        os.remove(dst_file)
+        
+
 def flow_read(src_file):
     """Read optical flow stored in a .flo, .pfm, or .png file
     Args:
